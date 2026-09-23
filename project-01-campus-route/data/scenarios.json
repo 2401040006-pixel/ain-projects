@@ -1,0 +1,61 @@
+{
+  "seed": 42,
+  "generated_by": "scripts/generate_campus.py",
+  "scenarios": [
+    {
+      "id": "S1_normal_route",
+      "class": "normal",
+      "start": "N_GATE",
+      "end": "N_D7_101",
+      "constraints": {},
+      "description": "Lộ trình cơ bản không có ràng buộc: Đi từ Cổng Chính HANU (đường Nguyễn Trãi) đến Phòng D7.101 (Ký túc xá D7). Thuật toán tìm đường trực tiếp dọc theo trục chính của trường."
+    },
+    {
+      "id": "S2_blocked_edge",
+      "class": "difficult",
+      "start": "N_GATE",
+      "end": "N_D7_101",
+      "constraints": {
+        "blocked_edges": [
+          [
+            "W_CROSS_EAST",
+            "W_SOUTH_STADIUM"
+          ]
+        ]
+      },
+      "description": "Cùng điểm đi/đến như S1, nhưng đoạn trục đường chính Nam Sân Vận Động (W_CROSS_EAST - W_SOUTH_STADIUM) đang sửa chữa/bị chặn. Thuật toán phải tìm được lộ trình vòng hợp lệ (qua Quảng Trường Xanh hoặc Vành Đai Bắc Sân Vận Động) thay vì báo thất bại."
+    },
+    {
+      "id": "S3_accessibility_mode",
+      "class": "difficult",
+      "start": "N_GATE",
+      "end": "N_C_201",
+      "constraints": {
+        "accessible_only": true
+      },
+      "description": "Đi từ Cổng Chính lên Phòng Lab & Server Tầng 2 Nhà C với chế độ hỗ trợ tiếp cận (accessible_only=True). Lộ trình bắt buộc phải tránh cầu thang bộ và sử dụng thang máy / lối đi bằng phẳng."
+    },
+    {
+      "id": "S4_heuristic_comparison",
+      "class": "extra",
+      "start": "N_A1_PARKING",
+      "end": "N_D6_101",
+      "constraints": {},
+      "heuristics": [
+        "euclidean",
+        "manhattan"
+      ],
+      "description": "Thí nghiệm so sánh hàm heuristic: Chạy A* từ Bãi Đỗ Xe A1 (góc Đông Bắc) đến Phòng D6.101 (góc Tây Nam) lần lượt với Heuristic Euclidean và Heuristic Manhattan. So sánh chi phí đường đi, số node đã mở rộng (expanded nodes) và thời gian thực thi."
+    },
+    {
+      "id": "S5_accessibility_no_path",
+      "class": "failure",
+      "start": "N_GATE",
+      "end": "N_C_ATTIC",
+      "constraints": {
+        "accessible_only": true
+      },
+      "description": "Phòng Gác Mái Kỹ Thuật Nhà C (N_C_ATTIC) chỉ có thể tiếp cận qua cầu thang xoắn ốc hẹp (stairs=True, accessible=False) mà không có thang máy. Khi bật accessible_only=True, thuật toán phải báo 'no path found' một cách an toàn chứ không bị crash hoặc trả về đường đi vi phạm."
+    }
+  ]
+}

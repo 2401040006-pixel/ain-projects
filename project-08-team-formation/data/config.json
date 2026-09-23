@@ -1,0 +1,35 @@
+{
+  "synthetic_data_notice": "All students, skills, roles, and availability in this pack are synthetic educational data, not real student records.",
+  "default_seed": 42,
+  "num_students": 60,
+  "team_size_min": 3,
+  "team_size_max": 4,
+  "roles": ["Leader", "Coder", "Researcher", "Presenter"],
+  "availability_slots": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  "skill_fields": ["programming", "mathematics", "presentation"],
+  "skill_range": [1, 10],
+  "objective_terms": [
+    {
+      "symbol": "w1",
+      "name": "skill_imbalance",
+      "description": "Spread of average per-team skill (programming/mathematics/presentation) across teams. Lower is more balanced."
+    },
+    {
+      "symbol": "w2",
+      "name": "schedule_conflict",
+      "description": "How little a team's members' availability_vector bits overlap. Lower means teammates share more common meeting slots."
+    },
+    {
+      "symbol": "w3",
+      "name": "role_imbalance",
+      "description": "How unevenly preferred_role is distributed within a team (e.g. a team with four Leaders and no Coder scores worse)."
+    },
+    {
+      "symbol": "w4",
+      "name": "team_size_penalty",
+      "description": "Penalty for a team outside [team_size_min, team_size_max]."
+    }
+  ],
+  "objective_formula": "J = w1 * skill_imbalance + w2 * schedule_conflict + w3 * role_imbalance + w4 * team_size_penalty",
+  "note": "This file does not fix w1..w4. Students choose and justify their own weights -- see README.md and the required experiment."
+}

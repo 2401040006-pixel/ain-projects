@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "notes": "14 synthetic causes across the five FIT HANU campus IT support domains (hanu_wifi, fit_lms, lab_computers, hanu_account, fit_printer). Not real incident causes.",
+  "causes": [
+    { "id": "CAUSE01", "domain": "hanu_wifi", "description": "HANU_Student captive portal session has expired or cookie is blocked by the browser", "recommended_action": "Clear browser cookies and cache, then reconnect to HANU_Student and open a non-HTTPS page to trigger the portal redirect." },
+    { "id": "CAUSE02", "domain": "hanu_wifi", "description": "Wireless adapter driver on the laptop is outdated or incompatible with the campus AP firmware", "recommended_action": "Update or reinstall the wireless network adapter driver from the manufacturer's website." },
+    { "id": "CAUSE03", "domain": "hanu_wifi", "description": "Campus access point in Nhà C is overloaded or malfunctioning (too many concurrent clients)", "recommended_action": "Report to FIT Office (P.210 Nhà C) and try connecting from a different location or access point." },
+    { "id": "CAUSE04", "domain": "fit_lms", "description": "Student has not been enrolled in the course section on FIT LMS after credit registration", "recommended_action": "Contact the course instructor or FIT Office (P.210 Nhà C) to request manual LMS enrollment." },
+    { "id": "CAUSE05", "domain": "fit_lms", "description": "FIT LMS session timeout is set too short, or the browser is blocking the keep-alive cookie", "recommended_action": "Use a supported browser (Chrome/Firefox), disable strict cookie blocking, and stay on the LMS tab." },
+    { "id": "CAUSE06", "domain": "fit_lms", "description": "Submission file exceeds the FIT LMS upload size limit (usually 50 MB per file)", "recommended_action": "Compress the submission into a smaller archive, or split into multiple files, and re-submit." },
+    { "id": "CAUSE07", "domain": "lab_computers", "description": "GRUB bootloader is misconfigured on the lab workstation (dual-boot Ubuntu/Windows issue)", "recommended_action": "Report to Lab technician or FIT Office; do not attempt to repair GRUB manually in a shared lab machine." },
+    { "id": "CAUSE08", "domain": "lab_computers", "description": "Lab workstation LAN cable is unplugged from the switch or the NIC has failed", "recommended_action": "Check the cable connection at the back of the workstation; report a failed NIC to the lab technician." },
+    { "id": "CAUSE09", "domain": "lab_computers", "description": "Projector input source is not set to the correct HDMI port, or the HDMI cable is faulty", "recommended_action": "Press SOURCE on the projector remote and select HDMI; try a different cable." },
+    { "id": "CAUSE10", "domain": "hanu_account", "description": "HANU student account password has expired (HANU policy requires periodic password changes)", "recommended_action": "Use the HANU self-service password reset portal or visit FIT Office (P.210 Nhà C) with student ID." },
+    { "id": "CAUSE11", "domain": "hanu_account", "description": "HANU account is locked after exceeding the maximum number of failed login attempts", "recommended_action": "Wait 30 minutes for auto-unlock, or contact FIT Office (P.210 Nhà C / fit@hanu.edu.vn) for manual unlock." },
+    { "id": "CAUSE12", "domain": "hanu_account", "description": "Microsoft 365 HANU licence is not assigned to the account, or licence pool is temporarily exhausted", "recommended_action": "Report to FIT Office; the licence assignment may need to be refreshed from the admin portal." },
+    { "id": "CAUSE13", "domain": "fit_printer", "description": "Shared printer driver in P.210 Nhà C is missing or mismatched with the student's OS version", "recommended_action": "Install the correct driver from the HANU intranet printer page, or ask staff in P.210." },
+    { "id": "CAUSE14", "domain": "fit_printer", "description": "Printer toner cartridge in P.210 is empty or the printer has an uncleared paper jam sensor", "recommended_action": "Report to FIT Office; staff will replace toner or physically clear the jam sensor flag." }
+  ]
+}

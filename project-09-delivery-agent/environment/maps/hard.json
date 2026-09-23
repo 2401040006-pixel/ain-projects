@@ -1,0 +1,26 @@
+{
+  "name": "hard",
+  "description": "12x11 floor with a small locked room around the PICKUP cell and two DANGER cells guarding shortcuts through the interior walls. A longer wall-hugging route around the whole interior avoids both DANGER cells entirely, but a random or greedy policy is very likely to wander into one of them.",
+  "legend": {
+    "S": "START",
+    ".": "EMPTY",
+    "#": "WALL",
+    "P": "PICKUP",
+    "G": "GOAL",
+    "D": "DANGER"
+  },
+  "grid": [
+    "S..........",
+    ".########..",
+    ".#...P#.##.",
+    ".#.####.##.",
+    ".#....#.##.",
+    ".#.##.#....",
+    ".#.D#......",
+    ".#..#.####.",
+    ".#..#.#..#.",
+    ".#..#.#D.#.",
+    ".#....#..#.",
+    "......#..G."
+  ]
+}

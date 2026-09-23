@@ -1,0 +1,20 @@
+{
+  "name": "easy",
+  "description": "Open 6x8 floor, no walls, no danger. A direct pickup-then-deliver route with no obstacles, meant to show a working policy quickly.",
+  "legend": {
+    "S": "START",
+    ".": "EMPTY",
+    "#": "WALL",
+    "P": "PICKUP",
+    "G": "GOAL",
+    "D": "DANGER"
+  },
+  "grid": [
+    "S.......",
+    "........",
+    "..P.....",
+    "........",
+    "......G.",
+    "........"
+  ]
+}

@@ -1,0 +1,9 @@
+lecturer_id,name,available_slots
+L01,Dr. Mai Tran,ALL
+L02,Dr. Khoa Le,ALL
+L03,Dr. Yen Pham,T01;T02;T03;T04;T05;T06;T07;T08
+L04,Dr. Duc Vo,ALL
+L05,Dr. Linh Bui,ALL
+L06,Dr. Nam Dang,T09;T10;T11;T12;T13;T14;T15;T16
+L07,Dr. Thu Ngo,ALL
+L08,Dr. Hoa Doan,ALL

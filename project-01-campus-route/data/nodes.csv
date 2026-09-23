@@ -1,0 +1,55 @@
+node_id,name,x,y,floor,building,node_type
+N_GATE,Cổng Chính HANU (Nguyễn Trãi),575.0,196.0,0,Campus Grounds,plaza
+N_SOUVENIR,Cửa Hàng HANU Souvenir,550.0,125.0,1,HANU Souvenir,room
+N_B_ENTRANCE,Sảnh Nhà B,530.0,250.0,1,Nhà B,entrance
+N_B_101,Phòng Học B.101,545.0,290.0,1,Nhà B,room
+N_A1_GARDEN,Sân Vườn A1,480.0,265.0,0,Campus Grounds,plaza
+N_A1_ENTRANCE,Sảnh Nhà A1,480.0,340.0,1,Nhà A1,entrance
+N_A1_HALL,Hội Trường A1,450.0,365.0,1,Nhà A1,room
+N_A1_201,Phòng Học A1.201,515.0,365.0,2,Nhà A1,room
+N_A1_PARKING,Bãi Đỗ Xe A1,500.0,440.0,0,Campus Grounds,plaza
+N_A_ENTRANCE,Sảnh Nhà A,412.0,230.0,1,Nhà A,entrance
+N_A_101,Phòng Học A.101,412.0,305.0,1,Nhà A,room
+N_D1_ENTRANCE,Sảnh Nhà D1,515.0,175.0,1,Nhà D1,entrance
+N_D1_101,Phòng D1.101,515.0,105.0,1,Nhà D1,room
+N_D2_ENTRANCE,Sảnh Nhà D2,475.0,175.0,1,Nhà D2,entrance
+N_D2_101,Phòng D2.101,475.0,105.0,1,Nhà D2,room
+N_D3_ENTRANCE,Sảnh Nhà D3,435.0,175.0,1,Nhà D3,entrance
+N_D3_101,Phòng D3.101,435.0,105.0,1,Nhà D3,room
+N_C_ENTRANCE,Sảnh Chính Nhà C,482.0,68.0,1,Nhà C,entrance
+N_C_101,Phòng Lab C.101,445.0,38.0,1,Nhà C,room
+N_C_201,Phòng Lab & Server C.201,520.0,38.0,2,Nhà C,room
+N_C_ATTIC,Phòng Gác Mái Kỹ Thuật Nhà C,482.0,24.0,3,Nhà C,room
+N_STADIUM_EAST,Khán Đài Đông Sân Vận Động,360.0,282.0,0,HANU Stadium,plaza
+N_STADIUM_WEST,Khán Đài Tây Sân Vận Động,190.0,282.0,0,HANU Stadium,plaza
+N_STADIUM_PITCH,Sân Cỏ & Đường Chạy,275.0,282.0,0,HANU Stadium,plaza
+N_GREEN_SQUARE,Quảng Trường Xanh,355.0,155.0,0,Campus Grounds,plaza
+N_LIB_ENTRANCE,Sảnh Thư Viện HANU,355.0,125.0,1,Thư Viện,entrance
+N_LIB_101,Phòng Đọc Thư Viện,335.0,100.0,1,Thư Viện,room
+N_LIB_201,Phòng Đa Phương Tiện Thư Viện,375.0,100.0,2,Thư Viện,room
+N_E_ENTRANCE,Sảnh Nhà E,355.0,68.0,1,Nhà E,entrance
+N_E_101,Giảng Đường E.101,355.0,42.0,1,Nhà E,room
+N_D4_ENTRANCE,Sảnh Nhà D4,255.0,175.0,1,Nhà D4,entrance
+N_D4_101,Phòng D4.101,255.0,115.0,1,Nhà D4,room
+N_D4_PARKING,Bãi Đỗ Xe D4,205.0,140.0,0,Campus Grounds,plaza
+N_D5_ENTRANCE,Sảnh Nhà D5,155.0,175.0,1,Nhà D5,entrance
+N_D5_101,Phòng D5.101,155.0,115.0,1,Nhà D5,room
+N_D6_ENTRANCE,Sảnh Nhà D6,205.0,75.0,1,Nhà D6,entrance
+N_D6_101,Phòng D6.101,175.0,45.0,1,Nhà D6,room
+N_CANTEEN_ENTRANCE,Sảnh Căn Tin,140.0,280.0,1,Căn Tin,entrance
+N_CANTEEN_HALL,Khu Ẩm Thực Căn Tin,115.0,255.0,1,Căn Tin,room
+N_D7_ENTRANCE,Sảnh Ký Túc Xá D7,65.0,215.0,1,Ký Túc Xá D7,entrance
+N_D7_101,Phòng D7.101,35.0,215.0,1,Ký Túc Xá D7,room
+N_D7_GROCERY,Cửa Hàng Tạp Hóa D7,40.0,325.0,1,Dịch Vụ D7,room
+N_D7_PARKING,Bãi Đỗ Xe D7,60.0,60.0,0,Campus Grounds,plaza
+W_A_B,Trục Đường Trước Nhà B & Sân Vườn A1,480.0,196.0,0,Campus Grounds,hallway
+W_CROSS_EAST,Ngã Tư Trung Tâm Phía Đông,375.0,196.0,0,Campus Grounds,hallway
+W_SOUTH_STADIUM,Trục Đường Nam Sân Vận Động,275.0,196.0,0,Campus Grounds,hallway
+W_CROSS_WEST,Ngã Tư Căn Tin - Sân Vận Động,155.0,196.0,0,Campus Grounds,hallway
+W_WEST_ALLEY,Lối Rẽ KTX D7,75.0,196.0,0,Campus Grounds,hallway
+W_NE_CORNER,Lối Rẽ Đông Bắc Sân Vận Động,375.0,370.0,0,Campus Grounds,hallway
+W_A1_ROAD,Đường Lên Bãi Xe A1,500.0,395.0,0,Campus Grounds,hallway
+W_NORTH_STADIUM,Đường Vành Đai Bắc Sân Vận Động,275.0,370.0,0,Campus Grounds,hallway
+W_NW_CORNER,Lối Rẽ Tây Bắc Sân Vận Động,155.0,370.0,0,Campus Grounds,hallway
+W_SOUTH_EAST,Lối Đi D3 - Nhà C,405.0,100.0,0,Campus Grounds,hallway
+W_SOUTH_CENTRAL,Lối Đi Thư Viện - Giảng Đường D,295.0,100.0,0,Campus Grounds,hallway

@@ -1,0 +1,17 @@
+course_id,course_name,cohort,required_room_type,min_capacity,eligible_lecturers
+U01,Special Topics in Robotics,CS-2A,Lecture,25,L09
+U02,Special Topics in Vision,CS-2A,Lecture,25,L09
+C03,Data Structures,CS-2A,Lecture,40,L04;L01
+C04,Computer Architecture,CS-2A,Lecture,35,L07;L02
+C05,Programming Lab I,CS-2A,Lab,25,L06
+C06,Algorithms,CS-2A,Lecture,40,L01;L04
+C07,Databases,CS-2B,Lab,20,L05;L08
+C08,Operating Systems,CS-2B,Lecture,35,L02;L07
+C09,Computer Networks,CS-2B,Lecture,30,L08;L05
+C10,Database Lab,CS-2B,Lab,20,L05
+C11,Software Engineering,CS-2B,Lecture,35,L07;L02
+C12,Web Development,CS-2C,Lecture,30,L08;L05
+C13,Mobile App Development,CS-2C,Lab,20,L03
+C14,AI Fundamentals,CS-2C,Lecture,35,L05;L08
+C15,Human-Computer Interaction,CS-2C,Lecture,30,L04;L01
+C16,Capstone Seminar,CS-2C,Lecture,25,L06;L02

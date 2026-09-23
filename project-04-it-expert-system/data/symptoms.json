@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "notes": "27 synthetic symptoms across five IT support domains specific to FIT HANU campus environment (Nhà C, HANU_Student WiFi, portal.hanu.edu.vn, lms.hanu.edu.vn, Lab C1/C2/C3, fit@hanu.edu.vn). Not real incident reports.",
+  "symptoms": [
+    { "id": "SYM01", "domain": "hanu_wifi", "description": "Device connects to HANU_Student but the captive portal login page does not appear" },
+    { "id": "SYM02", "domain": "hanu_wifi", "description": "Laptop cannot see HANU_Student or HANU_Staff network in the available Wi-Fi list" },
+    { "id": "SYM03", "domain": "hanu_wifi", "description": "Wi-Fi connects to HANU_Student, then drops every few minutes inside Nhà C" },
+    { "id": "SYM04", "domain": "hanu_wifi", "description": "HANU_Student connects in the corridor but drops signal immediately inside Lab C1 or Lab C2" },
+    { "id": "SYM05", "domain": "hanu_wifi", "description": "Wi-Fi works on a phone but not on a laptop on the same HANU_Student network" },
+    { "id": "SYM06", "domain": "hanu_wifi", "description": "Captive portal accepts username/password but immediately redirects back to the login page" },
+    { "id": "SYM07", "domain": "fit_lms", "description": "AIN301 course does not appear in the FIT LMS (lms.hanu.edu.vn) course list after registration" },
+    { "id": "SYM08", "domain": "fit_lms", "description": "Assignment submission on FIT LMS fails with a file-size-exceeded error" },
+    { "id": "SYM09", "domain": "fit_lms", "description": "FIT LMS session expires immediately after login, forcing re-login every few minutes" },
+    { "id": "SYM10", "domain": "fit_lms", "description": "Attendance record on FIT LMS shows absent despite the student being present in class" },
+    { "id": "SYM11", "domain": "fit_lms", "description": "FIT LMS submission page shows a deadline that has already passed, but the announced deadline is still open" },
+    { "id": "SYM12", "domain": "lab_computers", "description": "Lab workstation in Lab C1/C2/C3 shows a GRUB boot error and will not load Ubuntu" },
+    { "id": "SYM13", "domain": "lab_computers", "description": "Lab workstation keyboard or mouse is unresponsive at the login screen" },
+    { "id": "SYM14", "domain": "lab_computers", "description": "Lab workstation cannot connect to the LAN switch (no network icon, no IP assigned)" },
+    { "id": "SYM15", "domain": "lab_computers", "description": "Projector in room C202 or C301 does not display the laptop screen when HDMI cable is connected" },
+    { "id": "SYM16", "domain": "lab_computers", "description": "Lab workstation screen shows colour lines or flickering after boot" },
+    { "id": "SYM17", "domain": "hanu_account", "description": "HANU student email (@hanu.edu.vn) password has expired and the self-service reset link does not arrive" },
+    { "id": "SYM18", "domain": "hanu_account", "description": "Microsoft 365 (Office 365) HANU licence shows as 'unlicensed' after a recent password change" },
+    { "id": "SYM19", "domain": "hanu_account", "description": "Cannot log into portal.hanu.edu.vn — account locked after multiple failed password attempts" },
+    { "id": "SYM20", "domain": "hanu_account", "description": "Student account is suspended on the training portal, preventing grade viewing" },
+    { "id": "SYM21", "domain": "hanu_account", "description": "Two-factor authentication (2FA) code for the HANU portal is not received on the registered phone" },
+    { "id": "SYM22", "domain": "fit_printer", "description": "Shared printer in FIT Office (P.210 Nhà C) shows 'Offline' in the operating system" },
+    { "id": "SYM23", "domain": "fit_printer", "description": "Print job stays in queue and never prints on the P.210 shared printer" },
+    { "id": "SYM24", "domain": "fit_printer", "description": "Printer in P.210 prints blank pages" },
+    { "id": "SYM25", "domain": "fit_printer", "description": "Print output is faded or streaky on the P.210 shared printer" },
+    { "id": "SYM26", "domain": "fit_printer", "description": "Print job succeeds from the instructor's computer but not from a student laptop on the same network" },
+    { "id": "SYM27", "domain": "fit_printer", "description": "Printer shows a paper-jam error in P.210 even after the jammed sheet has been removed" }
+  ]
+}

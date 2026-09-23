@@ -1,0 +1,24 @@
+{
+  "instance_id": "restricted_rooms",
+  "description": "Same courses/lecturers as the feasible instance, but only 4 rooms are available (2 Lecture, 2 Lab) instead of 7. Still satisfiable, but tight.",
+  "hard_constraints": [
+    "lecturer_in_eligible_set",
+    "lecturer_available_at_slot",
+    "room_type_and_capacity_match",
+    "room_available_at_slot",
+    "no_room_double_booking",
+    "no_lecturer_double_booking",
+    "no_cohort_double_booking"
+  ],
+  "soft_constraints": [
+    {
+      "name": "cohort_daily_spread",
+      "description": "Prefer a cohort's courses spread across different days instead of stacked back to back."
+    },
+    {
+      "name": "lecturer_load_balance",
+      "description": "Prefer lecturers teaching a similar number of courses across the week."
+    }
+  ],
+  "extra_constraints": []
+}

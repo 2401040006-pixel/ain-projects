@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "notes": "15 synthetic FIT HANU campus IT scenarios for the midterm/final demo. `expected_behavior` is a qualitative description of correct reasoning against the updated rules.json — not a hard-coded answer key. Build your own infer()/explain() against rules.json.",
+  "scenarios": [
+    {
+      "id": "SC01_single_cause_portal_loop",
+      "class": "single_cause",
+      "domain": "hanu_wifi",
+      "presented_symptoms": ["SYM01", "SYM06"],
+      "description": "Student connects to HANU_Student but the captive portal login page does not appear, and repeated logins redirect back to the same page.",
+      "expected_behavior": "Only CAUSE01 (captive portal session expired or cookie blocked) should fire via R001 and R003.",
+      "reasoning_probe": "Show every rule that fired for this scenario and confirm they all agree on one cause."
+    },
+    {
+      "id": "SC02_single_cause_printer_offline",
+      "class": "single_cause",
+      "domain": "fit_printer",
+      "presented_symptoms": ["SYM22", "SYM23"],
+      "description": "Shared printer in P.210 Nhà C shows Offline. Print jobs queue but never print.",
+      "expected_behavior": "CAUSE13 (toner empty or hardware fault) and CAUSE14 (driver mismatch) may both fire (ambiguous scenario).",
+      "reasoning_probe": "Which rule IDs fired? How many distinct causes does the system return? What additional symptom would disambiguate between CAUSE13 and CAUSE14?"
+    },
+    {
+      "id": "SC03_single_cause_lms_not_enrolled",
+      "class": "single_cause",
+      "domain": "fit_lms",
+      "presented_symptoms": ["SYM07"],
+      "description": "A student registered for AIN301 via the credit registration portal but the course does not appear on FIT LMS (lms.hanu.edu.vn).",
+      "expected_behavior": "Only CAUSE04 (student not enrolled in the LMS section after registration) should fire via R010.",
+      "reasoning_probe": "What is the minimal symptom subset that still triggers CAUSE04 alone?"
+    },
+    {
+      "id": "SC04_ambiguous_wifi_drop",
+      "class": "ambiguous",
+      "domain": "hanu_wifi",
+      "presented_symptoms": ["SYM03", "SYM04"],
+      "description": "HANU_Student connection drops repeatedly inside Lab C1. Same behaviour on different laptops.",
+      "expected_behavior": "Both CAUSE02 (driver) and CAUSE03 (AP overload) should fire (R005 and R007 both trigger). The system should surface both and recommend follow-up questions.",
+      "reasoning_probe": "What one additional question would you ask the student to distinguish CAUSE02 from CAUSE03? How would the answer change the inference?"
+    },
+    {
+      "id": "SC05_ambiguous_account_locked",
+      "class": "ambiguous",
+      "domain": "hanu_account",
+      "presented_symptoms": ["SYM19", "SYM20"],
+      "description": "A student cannot log into portal.hanu.edu.vn, and the training portal also shows the account as suspended.",
+      "expected_behavior": "CAUSE11 (account locked after failed attempts) should be the primary cause. The system should explain both rules that fire (R027 and R028).",
+      "reasoning_probe": "Would the presence of SYM21 (2FA code not received) change the set of triggered causes? Which new rule would fire?"
+    },
+    {
+      "id": "SC06_missing_info_no_symptoms",
+      "class": "missing_info",
+      "domain": "fit_lms",
+      "presented_symptoms": [],
+      "description": "Student reports 'I have a problem with FIT LMS' but provides no specific symptom.",
+      "expected_behavior": "No rules fire. System should report 'insufficient evidence' and ask clarifying questions to narrow down to SYM07–SYM11.",
+      "reasoning_probe": "Which symptom, if added, would produce the most informative (single-cause) inference? Which would create the most ambiguity?"
+    },
+    {
+      "id": "SC07_contradictory_printer",
+      "class": "contradictory_symptoms",
+      "domain": "fit_printer",
+      "presented_symptoms": ["SYM22", "SYM25", "SYM26"],
+      "description": "Printer shows Offline (SYM22), but staff report faded output (SYM25), and a job printed successfully from the instructor's PC (SYM26). The first and third symptoms are in partial contradiction (offline vs. able to print from one PC).",
+      "expected_behavior": "System should flag the SYM22/SYM26 tension (printer cannot be offline and printing simultaneously) and report ambiguous evidence, listing both CAUSE13 and CAUSE14 as candidate causes while noting the inconsistency.",
+      "reasoning_probe": "Which pair of symptoms is contradictory? What would a real technician do to resolve this before running inference?"
+    },
+    {
+      "id": "SC08_lab_grub_error",
+      "class": "single_cause",
+      "domain": "lab_computers",
+      "presented_symptoms": ["SYM12"],
+      "description": "Lab C2 workstation shows a GRUB rescue prompt on boot. Ubuntu will not load.",
+      "expected_behavior": "Only CAUSE07 (GRUB misconfigured) should fire via R017.",
+      "reasoning_probe": "Is the student permitted to repair GRUB themselves? What action does the system recommend?"
+    },
+    {
+      "id": "SC09_lab_no_network",
+      "class": "single_cause",
+      "domain": "lab_computers",
+      "presented_symptoms": ["SYM14"],
+      "description": "Lab C1 workstation shows no network icon and cannot be assigned an IP address.",
+      "expected_behavior": "CAUSE08 (LAN cable unplugged or NIC failed) should fire via R019.",
+      "reasoning_probe": "Does adding SYM13 (keyboard unresponsive) change the set of fired causes? Why or why not?"
+    },
+    {
+      "id": "SC10_projector_hdmi",
+      "class": "single_cause",
+      "domain": "lab_computers",
+      "presented_symptoms": ["SYM15"],
+      "description": "Projector in room C202 shows a blue screen when the student connects a laptop via HDMI.",
+      "expected_behavior": "CAUSE09 (input source not set or faulty HDMI cable) should fire via R022.",
+      "reasoning_probe": "What is the cheapest and fastest action to verify CAUSE09 without specialist tools?"
+    },
+    {
+      "id": "SC11_password_expired",
+      "class": "single_cause",
+      "domain": "hanu_account",
+      "presented_symptoms": ["SYM17"],
+      "description": "Student's @hanu.edu.vn email password has expired and the self-service reset email does not arrive.",
+      "expected_behavior": "CAUSE10 (HANU account password expired) fires via R025. System should advise visiting P.210 Nhà C with student ID.",
+      "reasoning_probe": "Would adding SYM21 (2FA not received) change the fired rules? List the new rule IDs."
+    },
+    {
+      "id": "SC12_submission_size_exceeded",
+      "class": "single_cause",
+      "domain": "fit_lms",
+      "presented_symptoms": ["SYM08"],
+      "description": "Student cannot submit a lab report on FIT LMS because of a file-size-exceeded error.",
+      "expected_behavior": "CAUSE06 (file exceeds LMS upload limit) fires via R015.",
+      "reasoning_probe": "What is the immediate workaround the system recommends? Does the diagnosis change if SYM11 (deadline mismatch) is also present?"
+    },
+    {
+      "id": "SC13_wifi_laptop_only",
+      "class": "ambiguous",
+      "domain": "hanu_wifi",
+      "presented_symptoms": ["SYM05"],
+      "description": "HANU_Student connects on the student's phone but not on the laptop.",
+      "expected_behavior": "CAUSE02 (driver issue) fires via R006. System should recommend updating the wireless driver.",
+      "reasoning_probe": "What information about the laptop model or OS version would strengthen or weaken this diagnosis?"
+    },
+    {
+      "id": "SC14_office365_unlicensed",
+      "class": "single_cause",
+      "domain": "hanu_account",
+      "presented_symptoms": ["SYM18"],
+      "description": "Student's Microsoft 365 shows 'Unlicensed' after a recent HANU password change.",
+      "expected_behavior": "CAUSE12 (M365 HANU licence not assigned) fires via R030.",
+      "reasoning_probe": "Why might a password change cause the licence to go unlicensed? What architectural reason does R031 capture?"
+    },
+    {
+      "id": "SC15_lms_session_timeout",
+      "class": "single_cause",
+      "domain": "fit_lms",
+      "presented_symptoms": ["SYM09", "SYM11"],
+      "description": "FIT LMS logs the student out every few minutes, and the submission deadline displayed does not match the announced one.",
+      "expected_behavior": "CAUSE05 (session timeout / cookie blocked) fires via R013 and R014.",
+      "reasoning_probe": "Do both SYM09 and SYM11 need to be present to fire CAUSE05? What is the minimum symptom set?"
+    }
+  ]
+}

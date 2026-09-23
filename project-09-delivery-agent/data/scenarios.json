@@ -1,0 +1,40 @@
+{
+  "description": "Minimum demo scenarios for Project 09, keyed by id. Cited by instructor/checks/project-09.md. These are environment fixtures, not solutions: none of them ship a trained policy.",
+  "scenarios": [
+    {
+      "id": "N1",
+      "class": "Normal",
+      "map": "easy",
+      "reward_preset": "default",
+      "description": "Easy map, default reward. A trained agent should reach GOAL carrying the package in close to the shortest possible number of steps."
+    },
+    {
+      "id": "D1",
+      "class": "Difficult",
+      "map": "hard",
+      "reward_preset": "default",
+      "description": "Hard map, default reward. DANGER cells guard shortcuts through the interior walls; a well-trained agent should route around them even though a random policy frequently hits one."
+    },
+    {
+      "id": "D2",
+      "class": "Difficult",
+      "map": "medium",
+      "reward_preset": "default",
+      "description": "Danger zones demo: medium map has one DANGER cell next to a shortcut around the wall block. Compare a random policy (frequently hits DANGER) against a trained policy (should avoid it)."
+    },
+    {
+      "id": "F1",
+      "class": "Failure",
+      "map": "medium",
+      "reward_preset": "bad_reward",
+      "description": "Bad reward design demo: no step cost and no danger penalty. An agent trained under this preset has no incentive to move efficiently or avoid DANGER, and can reward-hack by walking straight to GOAL without ever picking up the package (goal_without_package_reward equals goal_reward here)."
+    },
+    {
+      "id": "X1",
+      "class": "Extra",
+      "map": "medium",
+      "reward_preset": "improved_reward",
+      "description": "Improved reward design demo: same medium map as F1, but with a real step cost, a real danger penalty (with episode termination), and a penalty for reaching GOAL without the package. Contrast the resulting policy against F1 to show the reward-design experiment's effect."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+room_id,room_type,capacity,available_slots
+R01,Lecture,60,ALL
+R02,Lecture,45,ALL
+R05,Lab,30,ALL
+R06,Lab,25,ALL

@@ -1,0 +1,59 @@
+{
+  "synthetic_data_notice": "All students, skills, roles, and availability referenced by these scenarios are synthetic educational data, not real student records.",
+  "scenarios": [
+    {
+      "id": "P08-SKILL-PRIORITY",
+      "class": "skill_priority",
+      "description": "Weight the objective so skill balance across teams dominates.",
+      "example_weights": { "w1": 0.7, "w2": 0.1, "w3": 0.1, "w4": 0.1 },
+      "expected_direction": "Teams should end up with similar average programming/mathematics/presentation skill; schedule overlap and role mix may stay uneven."
+    },
+    {
+      "id": "P08-SCHEDULE-PRIORITY",
+      "class": "schedule_priority",
+      "description": "Weight the objective so shared availability within a team dominates.",
+      "example_weights": { "w1": 0.1, "w2": 0.7, "w3": 0.1, "w4": 0.1 },
+      "expected_direction": "Teams should end up with more overlapping availability_vector bits (easier to schedule a meeting); skill and role balance may stay uneven."
+    },
+    {
+      "id": "P08-ROLE-PRIORITY",
+      "class": "role_priority",
+      "description": "Weight the objective so role diversity within a team dominates.",
+      "example_weights": { "w1": 0.1, "w2": 0.1, "w3": 0.7, "w4": 0.1 },
+      "expected_direction": "Teams should end up with a mix of preferred_role values (not four Coders and no Leader); skill and schedule balance may stay uneven."
+    },
+    {
+      "id": "P08-WEIGHT-TRADEOFF",
+      "class": "weight_tradeoff",
+      "description": "Baseline, evenly-weighted objective used as the starting point for the required experiment.",
+      "example_weights": { "w1": 0.25, "w2": 0.25, "w3": 0.25, "w4": 0.25 },
+      "required_experiment": "Change at least one weight from this even baseline, regenerate teams with both Hill Climbing and Simulated Annealing, and report which objective term(s) improved and which worsened relative to this baseline, and why.",
+      "expected_direction": "There is no single fixed answer; report your own measured trade-off."
+    },
+    {
+      "id": "P08-HC-LOCAL-OPTIMUM",
+      "class": "hill_climbing_local_optimum",
+      "description": "A fixture starting assignment for two teams, verified against the actual committed students_seed42.csv data, that a greedy (single-swap, strict-improvement) Hill Climbing run cannot escape -- even though a better split exists.",
+      "team_size": 4,
+      "objective_term_isolated": "skill_imbalance",
+      "recommended_weights_to_reproduce": { "w1": 1.0, "w2": 0.0, "w3": 0.0, "w4": 0.0 },
+      "start_assignment": {
+        "team_local_a": ["S026", "S044", "S002", "S016"],
+        "team_local_b": ["S009", "S011", "S036", "S012"]
+      },
+      "skill_sum_per_student": {
+        "S026": 27, "S044": 6, "S002": 7, "S016": 26,
+        "S009": 19, "S011": 20, "S036": 18, "S012": 20
+      },
+      "current_imbalance": 11,
+      "note_no_single_swap_helps": "Every one of the 16 possible single-student swaps between team_local_a and team_local_b either keeps the imbalance at 11 (swapping S002<->S036) or makes it worse (13-29). A strict-improvement Hill Climber therefore terminates here and reports this as its answer.",
+      "escaping_two_for_two_swap": {
+        "description": "Swapping {S026, S044} out of team_local_a for {S009, S011} out of team_local_b drops the imbalance from 11 to 1 -- but this requires moving two students at once, which is outside a single-swap neighborhood.",
+        "team_local_a_after": ["S002", "S016", "S009", "S011"],
+        "team_local_b_after": ["S036", "S012", "S026", "S044"],
+        "imbalance_after": 1
+      },
+      "expected_direction": "Hill Climbing (single-swap neighborhood, strict improvement) should get stuck at imbalance 11 on this fixture. Simulated Annealing, or a Hill Climbing variant that accepts a temporary worsening move (or a 2-swap neighborhood), should be able to reach the imbalance-1 split. Explain this gap in your midterm analysis -- see README.md 'analyze local optimum'."
+    }
+  ]
+}

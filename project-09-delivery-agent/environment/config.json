@@ -1,0 +1,45 @@
+{
+  "actions": ["UP", "DOWN", "LEFT", "RIGHT"],
+  "default_map": "easy",
+  "max_steps_multiplier": 6,
+  "danger_terminates_episode": true,
+  "rewards": {
+    "step_cost": -1,
+    "wall_bump_cost": -2,
+    "pickup_reward": 5,
+    "goal_reward": 20,
+    "goal_without_package_reward": 0,
+    "danger_penalty": -15
+  },
+  "reward_presets": {
+    "default": {
+      "step_cost": -1,
+      "wall_bump_cost": -2,
+      "pickup_reward": 5,
+      "goal_reward": 20,
+      "goal_without_package_reward": 0,
+      "danger_penalty": -15,
+      "danger_terminates_episode": true
+    },
+    "bad_reward": {
+      "step_cost": 0,
+      "wall_bump_cost": 0,
+      "pickup_reward": 0,
+      "goal_reward": 1,
+      "goal_without_package_reward": 1,
+      "danger_penalty": 0,
+      "danger_terminates_episode": false,
+      "_note": "Demo of a broken reward design: no step cost means the agent has no incentive to move efficiently, no danger penalty means it never learns to avoid DANGER, and reaching GOAL without the package pays the same as delivering it, so the agent can 'reward hack' by ignoring PICKUP entirely."
+    },
+    "improved_reward": {
+      "step_cost": -1,
+      "wall_bump_cost": -2,
+      "pickup_reward": 8,
+      "goal_reward": 25,
+      "goal_without_package_reward": -2,
+      "danger_penalty": -20,
+      "danger_terminates_episode": true,
+      "_note": "Fixed design: a small negative step cost pushes toward short paths, a real danger penalty (with episode termination) discourages DANGER, and a small penalty for reaching GOAL without the package removes the reward-hacking shortcut from the bad preset."
+    }
+  }
+}
