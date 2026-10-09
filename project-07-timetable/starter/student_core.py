@@ -21,6 +21,8 @@ elsewhere in `starter/`):
 - calling a hosted LLM to produce the schedule instead of searching over
   the CSP yourself.
 """
+from starter.loaders import candidate_domain
+# Vừa thêm vào 
 
 from __future__ import annotations
 
@@ -28,8 +30,8 @@ from typing import Dict, Optional, Tuple
 
 Choice = Tuple[str, str, str]  # (lecturer_id, room_id, slot_id)
 
-
-def solve_csp(instance: dict, strategy: str = "naive") -> Optional[Dict[str, Choice]]:
+# THAY THẾ TIẾP NÀY 
+# def solve_csp(instance: dict, strategy: str = "naive") -> Optional[Dict[str, Choice]]:
     """Search for a legal assignment of every course to (lecturer, room, slot).
 
     Parameters
@@ -63,7 +65,74 @@ def solve_csp(instance: dict, strategy: str = "naive") -> Optional[Dict[str, Cho
     NotImplementedError
         Always, until you implement this function.
     """
-    raise NotImplementedError("Implement the timetable CSP solver for Project 07.")
+    # raise NotImplementedError("Implement the timetable CSP solver for Project 07.")
+# THAY THẾ TIẾP NÀY 
+# 
+def solve_csp(instance: dict, strategy: str = "naive") -> Optional[Dict[str, Choice]]:
+    courses = instance["courses"]
+    
+    # 1. Khởi tạo Domain cho từng môn học
+    domains = {
+        c_id: candidate_domain(c_id, instance) 
+        for c_id in courses
+    }
+    
+    # Nếu có môn học nào domain rỗng ngay từ đầu -> UNSAT
+    if any(len(dom) == 0 for dom in domains.values()):
+        return None
+
+    assignment: Dict[str, Choice] = {}
+
+    def is_consistent(course_id: str, choice: Choice, current_assignment: Dict[str, Choice]) -> bool:
+        lec_id, room_id, slot_id = choice
+        c_info = courses[course_id]
+        
+        for assigned_c_id, (a_lec, a_room, a_slot) in current_assignment.items():
+            if a_slot == slot_id:
+                # Kiểm tra trùng phòng
+                if a_room == room_id:
+                    return False
+                # Kiểm tra trùng giảng viên
+                if a_lec == lec_id:
+                    return False
+                # Kiểm tra trùng lịch của Cohort (nếu sinh viên thuộc cùng lớp/ngành)
+                assigned_c_info = courses[assigned_c_id]
+                if set(c_info.get("cohorts", [])).intersection(set(assigned_c_info.get("cohorts", []))):
+                    return False
+        return True
+
+    def select_unassigned_variable(current_assignment: Dict[str, Choice]):
+        unassigned = [c for c in courses if c not in current_assignment]
+        if strategy == "mrv":
+            # MRV (Minimum Remaining Values): Chọn môn học có ít lựa chọn hợp lệ nhất
+            return min(unassigned, key=lambda c: len(domains[c]))
+        else:
+            # Naive: Chọn theo thứ tự xuất hiện ban đầu
+            return unassigned[0]
+
+    def backtrack() -> bool:
+        if len(assignment) == len(courses):
+            return True
+
+        var = select_unassigned_variable(assignment)
+
+        for value in domains[var]:
+            if is_consistent(var, value, assignment):
+                assignment[var] = value
+                
+                # Thực hiện đệ quy
+                if backtrack():
+                    return True
+                
+                # Quay lui (Backtrack)
+                del assignment[var]
+
+        return False
+
+    if backtrack():
+        return assignment
+    return None
+# 
 
 
 def soft_constraint_score(instance: dict, assignment: Dict[str, Choice]) -> float:
